@@ -5,19 +5,19 @@ import ReviewItem from '../ReviewItem';
 const MovieReview = ({movieReview}) => {
   return (
     <ul className="review">
-      {movieReview.reviews.results.map(({ id, ...reviewInfo }) => (
+      {movieReview.map(({ id, ...reviewInfo }) => (
         <ReviewItem key={id} reviewInfo={reviewInfo} />
       ))}
     </ul>
   );
 };
 
-// MovieReview.propTypes = {
-//   movieReview: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       id: PropTypes.string,
-//     }),
-//   ).isRequired,
-// };
+MovieReview.propTypes = {
+  movieReview: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+    }),
+  ).isRequired,
+};
 
 export default MovieReview;

@@ -1,11 +1,10 @@
 import PropTypes from 'prop-types';
 
-// import defaultImg from '../../images/no-photo.jpg';
-
+import defaultImg from '../../images/no-img.jpeg';
 const baseUrl = 'https://image.tmdb.org/t/p/w342';
 
-const CastItem = ({ actorInfo: { profile_path, name, character } }) => {
-  const img = profile_path ? baseUrl + profile_path : null;
+const CastItem = ({ actor: { profile_path, name, character } }) => {
+  const img = profile_path ? baseUrl + profile_path : defaultImg;
   return (
     <li className="cast-list__item">
       <div className="cast-list__box">

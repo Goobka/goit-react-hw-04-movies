@@ -3,8 +3,6 @@ import Container from '../components/Container';
 import Searchbar from '../components/Searchbar';
 import MoviesList from '../components/MoviesList';
 import fetchMovies from '../services/fetchMovies';
-// import routes from '../routes'; //
-//import queryString from 'query-string'; вариант с библиотекой
 
 class MoviesView extends Component {
   state = {
@@ -17,7 +15,6 @@ class MoviesView extends Component {
       let paramsSearch = new URLSearchParams(this.props.location.search).get(
         'query',
       );
-      // let paramsSearch = queryString.parse(this.props.location.search).query; //вариант с библиотекой
       this.setState({ searchQuery: paramsSearch });
     }
   }
@@ -42,7 +39,6 @@ class MoviesView extends Component {
       ...location,
       search: `query=${query}`,
     });
-    // history.push(`${routes.movies}?query=${query}`);//тоже рабочий вариант
   }
 
   render() {

@@ -2,13 +2,12 @@ import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import MovieCard from '../MovieCard';
 import routes from '../../routes';
+import styles from './MoviesList.module.css';
 
 const MoviesList = ({ movies, location}) => {
-  const url = 'https://image.tmdb.org/t/p/w500/';
   return (
-    <ul>{movies.map(({id, ...movieInfo}) => (  <li key={id}>
+    <ul className={styles.movies}>{movies.map(({id, ...movieInfo}) => (  <li key={id} className={styles.movies__item}>
           <Link
-            className="movie-list__link"
             to={{
               pathname: `${routes.movies}/${id}`,
               state: {

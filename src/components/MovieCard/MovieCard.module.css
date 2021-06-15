@@ -1,0 +1,8 @@
+.movie__thumb {
+  text-align: center;
+}
+
+.movie__text {
+  display: inline-block;
+  color: #b10d0d;
+}

@@ -1,34 +1,49 @@
 import { Link, withRouter } from 'react-router-dom';
+import styles from './MovieInfo.module.css';
+import formatData from '../../services/formatData';
 
-const MovieInfo = ({ movie, match, location, url }) => {
+const MovieInfo = ({ movie, match, location }) => {
   const locationFrom = location.state.from;
 
+  const dataUpdate = formatData(movie);
+  const {
+    title,
+    imgUrl,
+    overview,
+    score,
+    release_year,
+    genresList,
+    reviews,
+  } = dataUpdate;
+
+  const isReview = reviews?.results.length !== 0 ? true : false;
+
   return (
-            <div className="movie-info">
-      <div className="movie-info__box">
-        <img className="movie-info__image" src={url+movie.poster_path} alt={movie.title} />
-        <div className="movie-info__text">
-          <h2 className="movie-info__title">
-            {movie.title + ' (' + movie.release_date + ')'}
+    <div className={styles.info}>
+      <div className={styles.info__box}>
+        <img src={imgUrl} alt={title} />
+        <div className={styles.info__text}>
+          <h2 className={styles.info__title}>
+            {title + ' (' + release_year + ')'}
           </h2>
-          <p className="movie-info__overview">
-            <span className="movie-info__paragraph">Overview: </span>
-            {movie.overview}
+          <p className={styles.info__overview}>
+            <span>Overview: </span>
+            {overview}
           </p>
-          <p className="movie-info__vote ">
-            <span className="movie-info__paragraph">User score: </span>
-            {movie.vote_average}
+          <p className={styles.info__vote}>
+            <span>User score: </span>
+            {score}
           </p>
-          <p className="movie-info__genres">
-            <span className="movie-info__paragraf">Genres: </span>
-            {movie.genres.map(elem => elem.name).join(', ')}
+          <p className={styles.info__genres}>
+            <span>Genres: </span>
+            {genresList}
           </p>
           </div>
         </div>
-      <ul className="addInfo">
-        <li className="addInfo__item" key="cast">
+      <ul className={styles.about}>
+        <li className={styles.about__item} key="cast">
           <Link
-            className="addInfo__link"
+            className={styles.about__link}
             to={{
               pathname: `${match.url}/cast`,
               state: { from: locationFrom },
@@ -37,10 +52,10 @@ const MovieInfo = ({ movie, match, location, url }) => {
             Cast
           </Link>
         </li>
-        {movie.reviews?.results.length !== 0 ? (
-          <li className="addInfo__item" key="reviews">
+        {isReview ? (
+          <li className={styles.about__item} key="reviews">
             <Link
-              className="addInfo__link"
+              className={styles.about__link}
               to={{
                 pathname: `${match.url}/reviews`,
                 state: { from: locationFrom },
@@ -50,7 +65,7 @@ const MovieInfo = ({ movie, match, location, url }) => {
             </Link>
           </li>
         ) : (
-          <p className="movie-info__message">
+          <p className={styles.about__msg}>
             There are no reviews for this movie!
           </p>
         )}

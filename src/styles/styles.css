@@ -4,12 +4,22 @@ body {
   line-height: 1.5;
   font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, Oxygen, 'Open Sans', Ubuntu, Cantarell, sans-serif;
+  background: rgb(138,180,58);
+  background: linear-gradient(90deg, rgb(105, 151, 19) 0%, rgba(253,227,29,1) 50%, rgba(252,176,69,1) 100%);
 }
 
+p {
+  margin: 0;
+}
 img {
-  display: block;
+  display: inline-block;
   max-width: 100%;
   height: auto;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
 }
 
 ul {
@@ -17,14 +27,19 @@ ul {
 }
 
 .nav__link {
-  text-decoration: none;
-}
-
-.nav__link {
-  font-size: 20px;
-  color: currentColor;
+  font-size: 40px;
+  font-weight: bold;
+  color: #000;
 }
 
 .nav__link--active {
-  color: palevioletred;
+  color: #b10d0d;
+}
+
+.button-back {
+  font-size: 20px;
+  color: #b10d0d;
+  padding: 10px 20px;
+  background: none;
+  border: 2px solid #b10d0d;
 }

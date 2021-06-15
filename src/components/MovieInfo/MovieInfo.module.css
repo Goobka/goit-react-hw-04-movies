@@ -1,0 +1,22 @@
+.info {
+  text-align: center;
+  padding: 50px;
+}
+
+.about {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 50px;
+}
+
+.info span {
+  color: #b10d0d;
+}
+
+.about__item {
+  text-transform: uppercase;
+}
+
+.about__link {
+  color: #b10d0d;
+}

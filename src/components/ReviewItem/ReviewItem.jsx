@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 
-// import defaultImg from '../../images/no-photo.jpg';
+import defaultImg from '../../images/no-img.jpeg';
 const baseUrl = 'https://image.tmdb.org/t/p/w342';
 
 const ReviewItem = ({ reviewInfo: { author_details, author, content } }) => {
   const avatar = author_details.avatar_path;
 
   const img = !avatar
-    ? null
+    ? defaultImg
     : avatar.slice(1, 6) === 'https'
     ? avatar.slice(1)
     : baseUrl + avatar;

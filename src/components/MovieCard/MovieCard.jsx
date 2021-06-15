@@ -1,16 +1,16 @@
 import PropTypes from 'prop-types';
-
-//import formatingData from '../../servises/formatinData';
+import styles from './MovieCard.module.css';
+import formatData from '../../services/formatData';
 
 const MovieCard = ({movieInfo}) => {
-  //const { imgUrl, title, realese_year } = formatingData(movieInfo);
+  const { imgUrl, title, release_year } = formatData(movieInfo);
 
   return (
-    <div className="movie">
-      <div className="movie__thumb">
-        <img className="movie__img" src={movieInfo.imgUrl} alt="movie poster" />
+    <div>
+      <div className={styles.movie__thumb}>
+        <img className="movie__img" src={imgUrl} alt="movie poster" />
       </div>
-      <p className="movie__text">{`${movieInfo.title}, ${movieInfo.release_data}`}</p>
+      <p className={styles.movie__text}>{`${title}, ${release_year}`}</p>
     </div>
   );
 };
